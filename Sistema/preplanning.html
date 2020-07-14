@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preplanning</title>
+</head>
+<style>
+    #dropArea{
+        background-color: cadetblue;
+        width: 20%; height: 20%;
+        position: absolute;
+    }
+</style>
+<body>
+    <h1>Preplanning</h1>
+    <div id="dropArea" ondrop="traverseFileTree();">
+
+    </div>
+</body>
+<script>
+    //file:///F:/Documentos/Trabajos/Gesti%C3%B3n%20de%20documentos%20AFS/Sistema/Documentos/
+    function traverseFileTree(item, path) {
+        path = path || "Documentos/Preplanning";
+        if (item.isFile) {
+            // Get file
+            item.file(function(file) {
+            console.log("File:", path + file.name);
+            });
+        } else if (item.isDirectory) {
+            // Get folder contents
+            var dirReader = item.createReader();
+            dirReader.readEntries(function(entries) {
+            for (var i=0; i<entries.length; i++) {
+                traverseFileTree(entries[i], path + item.name + "/");
+            }
+            });
+        }
+    }
+
+    var dropArea = document.getElementById("dropArea");
+    dropArea.addEventListener("drop", function(event) {
+    event.preventDefault();
+
+    var items = event.dataTransfer.items;
+    for (var i=0; i<items.length; i++) {
+        // webkitGetAsEntry is where the magic happens
+        var item = items[i].webkitGetAsEntry();
+        if (item) {
+        traverseFileTree(item);
+        }
+    }
+    }, false);
+</script>
+</html>

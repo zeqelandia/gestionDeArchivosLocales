@@ -1,0 +1,16 @@
+.container { margin:20px}
+.highlightOver { background:url('http://www.prguitarman.com/comics/poptart1red1.gif'); background-position:-20px -90px;}
+.type-png{ background-image:url(http://cdn5.iconfinder.com/data/icons/fatcow/16x16/file_extension_png.png)}
+.type-css { background-image: url(http://cdn5.iconfinder.com/data/icons/FileTypesIcons/16/css.png);}
+.type-js { background-image: url(http://cdn1.iconfinder.com/data/icons/CS5/16/ExtendScript_JSX_file_document.png);}
+.row{ margin:10px}
+input[type="file"] {  width: 600px; height: 300px; margin-top:-240px; background:transparent; }
+#fileHolder{width: 600px; height: 400px; overflow:hidden; background-color: antiquewhite;}
+.folder-icon{ margin:30px auto; background-image:url('http://cdn5.iconfinder.com/data/icons/Eko_Folders_by_kyo_tux/128/Downloads.png'); height:128px;width:128px;}
+ul { list-style-type:none}
+
+li{
+background-image: url(http://cdn1.iconfinder.com/data/icons/CrystalClear/16x16/mimetypes/unknown.png);
+background-repeat: no-repeat;
+padding-left: 1.6em;
+}

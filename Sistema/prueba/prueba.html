@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+    <link rel="stylesheet" href="prueba.css">
+    <script src="prueba.js"></script>
+</head>
+<body onload="crear(); cargar();">
+    <div class="container">
+        <input type="button" value="calcular" onclick="mostrar();">
+        <div class="page-header">
+          <h1>Demo <small>Drag and drop a directory on file input with <em>webkitdirectory</em></small></h1>
+        </div>
+      
+        <div class="row">
+          <div id="fileHolder">
+            <div class="folder-icon"></div>
+            <input type="file" multiple webkitdirectory id="fileURL" accept=".pdf">
+      
+          </div>
+      
+          <div class="row">
+            <h4>Files to upload:</h4>
+            <ul id="fileOutput">
+            </ul>
+          </div>
+      
+        </div>
+      </div>
+      <div id="links">
+
+      </div>
+</body>
+</html>
