@@ -12,7 +12,9 @@ var files,
     holder,
     links,
     filePaths,
-    rutaPrincipal;
+    rutaPrincipal,
+    startOfPath,
+    mainPath;
 
 function crear(){
     input = document.getElementById("fileURL");
@@ -20,7 +22,9 @@ function crear(){
     holder = document.getElementById("fileHolder");
     links = document.getElementById("links");
     filePaths = [];
-    rutaPrincipal = window.location;
+    rutaPrincipal = window.location.href;
+    getMainPathEndChar();
+    mainPath = rutaPrincipal.substring(0,(startOfPath+1));
 }
 
 
@@ -63,7 +67,8 @@ input.addEventListener("drop", function (e) {
 
 function mostrar(){
     for(let i = 0;i<files.length;i++){
-        var url = "file:///E:/Libros/";
+        var url = mainPath;
+        //var url = "file:///E:/Libros/";
         url += files[i].webkitRelativePath;
         filePaths.push(url);
     }
@@ -79,8 +84,14 @@ function generarLinks(){
     }
 }
 
-function obtenerRutaPrincipal(){
-    //
+function getMainPathEndChar(){
+    var dim = rutaPrincipal;
+    for(let i = 11;i<1000;i++){
+        if(rutaPrincipal[i] === '/'){
+            startOfPath = i;
+            break;
+        }
+    }
 }
 
 /*function mostrar(){
