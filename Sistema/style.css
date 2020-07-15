@@ -1,0 +1,60 @@
+html, body{
+    margin: 0; width: 100vw; height: 50vw; 
+}
+
+#titulo{
+    width: 100vw;
+}
+
+.filaTitulo{
+    height: 15%;
+    position: absolute;
+}
+
+img{
+    width: 45%;
+}
+
+#filaTitulo1, #filaTitulo3{
+    width: 20%;
+}
+
+#filaTitulo2{
+    width: 60%;
+    margin-left: 20%;
+}
+
+#filaTitulo3{
+    margin-left: 80%;
+}
+
+#linkTecpe{
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 25%;
+}
+
+#linkAFS{
+    width: 37%;
+    position: absolute;
+    margin-left: 28%;
+    margin-top: 4%;
+}
+
+.dev{
+    position: absolute;
+    width: 100vw; height: 1.3vw;
+    margin-top: 57.1vw;
+    background-color: black;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+h1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 5vw;
+}
