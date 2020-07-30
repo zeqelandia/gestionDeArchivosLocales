@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de documentos</title>
     <link rel="stylesheet" href="Sistema/style.css">
+    <script src="Sistema/main.js"></script>
+    <script src="Sistema/prueba.js"></script>
 </head>
 <style>
     h3{
@@ -14,7 +16,7 @@
         text-decoration: none;
     }
 </style>
-<body>
+<body onload="iniciarVariables(); crear(); cargar();">
     <div id="titulo">
         <div id="filaTitulo1" class="filaTitulo">
             <a href="https://www.afsconsultora.com.ar/"><img src="Sistema/afs.jpg" alt="AFS" id="linkAFS"></a>
@@ -25,6 +27,50 @@
         </div>
         <div id="filaTitulo3" class="filaTitulo">
             <a href="http://www.tecpetrol.com/esp/index.php"><img src="Sistema/tecpe.jpg" alt="Tecpetrol" id="linkTecpe"></a>
+        </div>
+    </div>
+    <div id="pantalla1" class="pantalla">
+        <div class="prueba">
+            <h3>Documentos</h3>
+            <div id="archivos">   
+                <div class="container">
+                    <h4>Arrastrá tus documentos dentro del recuadro</h4>
+                    <input type="button" value="calcular" onclick="mostrar();">
+                    <div class="row">
+                        <div id="fileHolder">
+                            <input type="file" multiple webkitdirectory id="fileURL" accept=".pdf">
+                        </div>
+                        <div class="row">
+                            <h4>Files to upload:</h4>
+                            <ul id="fileOutput">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="links"></div>
+            </div>
+            <h5 onclick="cambiarPantalla(2)">PRE</h5>
+            <h5 onclick="cambiarPantalla(3)">Preplanning</h5>
+        </div>
+    </div>
+    <div id="pantalla2" class="pantalla" style="display: none;">
+        <div class="prueba">
+            <h3>Plan de Respuesta a Emergencias</h3>
+            <div id="preLinks">
+
+            </div>
+            <h5 onclick="cambiarPantalla(1)">Documentos</h5>
+            <h5 onclick="cambiarPantalla(3)">Preplanning</h5>
+        </div>
+    </div>
+    <div id="pantalla3" class="pantalla" style="display: none;">
+        <div class="prueba">
+            <h3>Preplanning</h3>
+            <div id="preplanningLinks">
+
+            </div>
+            <h5 onclick="cambiarPantalla(1)">Documentos</h5>
+            <h5 onclick="cambiarPantalla(2)">PRE</h5>
         </div>
     </div>
     <div id="footer">
