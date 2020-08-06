@@ -24,7 +24,9 @@ function cambiarPantalla(pantalla){
 }
 
 function visibilidad(pantalla, vis){
-    pantalla.style.display = vis;*/
+    pantalla.style.display = vis;
+}    
+*/
 
 var pantalla1, pantalla2, pantalla3, pantallaActual;
 

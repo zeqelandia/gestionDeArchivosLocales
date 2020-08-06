@@ -194,18 +194,30 @@ function cargar(){
 }
 
 function mostrar(){
+    getMainPath();
+    rutaPrincipal = rutaPrincipal.substring(0,(startOfPath));
     for(let i = 0;i<files.length;i++){
-        //var url = mainPath;
-        var url = "F:/Documentos/Trabajos/Gestión%20de%20documentos%20AFS/repo/gestionDeArchivosLocales/Documentos";
-        url += files[i].webkitRelativePath;
+        var url = rutaPrincipal;
+        //var url = "F:/Documentos/Trabajos/Gestión%20de%20documentos%20AFS/repo/gestionDeArchivosLocales/Documentos";
+        url += "/" + files[i].webkitRelativePath;
         filePaths.push(url);
     }
-    generarLinks();
     getSubPaths();
+    generarLinks();
+}
+
+function getMainPath(){
+    var barra = 0;
+    for(let i = 0;i<1000;i++){
+        if(rutaPrincipal[i] == '/'){
+            barra = i;
+        }
+    }
+    startOfPath = barra;
 }
 
 function generarLinks(){
-    var str, str2;
+    var str, str2, aux;
     var preLinks = document.getElementById("preLinks");
     var preplanningLinks = document.getElementById("preplanningLinks");
     /*for(let i = 0;i<filePaths.length;i++){
@@ -213,16 +225,29 @@ function generarLinks(){
         str2 = str.replace(/\s/g,'%20');
         links.innerHTML += "<a href=" + str2 + ">Libro " + i +"</a><br>";
     }*/
-    console.log(preFiles);
     for(let i = 0;i<preFiles.length;i++){
         str = preFiles[i];
+        for(let j = (str.length-5);j>startOfPath;j--){
+            if(str[j] == '/'){
+                aux = j+1;
+                break;
+            }
+        }
+        aux = str.substring(aux, (str.length-4));
         str2 = str.replace(/\s/g,'%20');
-        preLinks.innerHTML += "<a href=" + str2 + ">Libro " + i +"</a><br>";
+        preLinks.innerHTML += "<a href=" + str2 + ">" + aux +"</a><br>";
     }
     for(let i = 0;i<preplanningFiles.length;i++){
         str = preplanningFiles[i];
+        for(let j = (str.length-5);j>startOfPath;j--){
+            if(str[j] == '/'){
+                aux = j+1;
+                break;
+            }
+        }
+        aux = str.substring(aux, (str.length-4));
         str2 = str.replace(/\s/g,'%20');
-        preplanningLinks.innerHTML += "<a href=" + str2 + ">Libro " + i +"</a><br>";
+        preplanningLinks.innerHTML += "<a href=" + str2 + ">" + aux +"</a><br>";
     }
 }
 
